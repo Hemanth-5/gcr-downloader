@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: gcr-downloader
+    env: node
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: CLIENT_ID
+        sync: false
+      - key: CLIENT_SECRET
+        sync: false
+      - key: REDIRECT_URI
+        value: https://your-app-name.onrender.com/auth/google/callback

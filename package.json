@@ -1,0 +1,12 @@
+{
+  "name": "gcr-downloader",
+  "version": "1.0.0",
+  "description": "Google Classroom Materials Downloader",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "start": "cd server && npm start",
+    "build": "cd server && npm install"
+  }
+}
