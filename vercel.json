@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "server/static/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/server/static/$1"
+    },
+    {
+      "src": "/auth/(.*)",
+      "dest": "/server/index.js"
+    },
+    {
+      "src": "/courses/(.*)",
+      "dest": "/server/index.js"
+    },
+    {
+      "src": "/user-info",
+      "dest": "/server/index.js"
+    },
+    {
+      "src": "/profile-image/(.*)",
+      "dest": "/server/index.js"
+    },
+    {
+      "src": "/logout",
+      "dest": "/server/index.js"
+    },
+    {
+      "src": "/(.*\\.(js|css|html|ico))",
+      "dest": "/server/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/server/index.js"
+    }
+  ],
+  "env": {
+    "CLIENT_ID": "@client_id",
+    "CLIENT_SECRET": "@client_secret",
+    "REDIRECT_URI": "@redirect_uri"
+  }
+}
